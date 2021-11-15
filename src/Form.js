@@ -12,9 +12,20 @@ class Form extends React.Component {
     event.preventDefault();
     this.uniqueId +=1;
     let newVDItem = {
-      // gather all items from form
-    }
-    // call calcVD function passed through props.
+      id: this.uniqueId,
+      wireTag: event.target.wireTag.value,
+      load: event.target.load.value,
+      loadType: event.target.loadType.value,
+      pf: event.target.pf.value,
+      voltage: event.target.voltage.value,
+      numOfPhases: event.target.numOfPhases.value,
+      conductorMaterial: event.target.conductorMaterial.value,
+      conduitMaterial: event.target.conduitMaterial.value,
+      parallelRuns: event.target.parallelRuns.value,
+      wireSize: event.target.wireSize.value,
+      wireLength: event.target.wireLength.value
+      }
+    this.props.calcVD(newVDItem)
 
   }
   
@@ -128,7 +139,7 @@ class Form extends React.Component {
             </label>
             <div class="col-sm-5">
               <select id="wireSize" className="form-select">
-                {this.props.wireSizes.map((element, i) => {
+                {this.props.listOfWireSizes.map((element, i) => {
                   return (
                     <option key={i} value={element}>
                       {element}

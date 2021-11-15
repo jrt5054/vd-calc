@@ -1,10 +1,13 @@
 import React from 'react';
+// import SingleLineItem from './SingleLineItem';
 
 class List extends React.Component {
     render() { 
         return (
         <ol>
-            {/* map function to list all items in App state */}
+            {/* {this.props.voltageDropItemsArray.map((singleElement)=>{
+                return <li><SingleLineItem /></li>
+            })} */}
         </ol>
         );
     }

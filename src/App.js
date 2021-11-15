@@ -8,7 +8,7 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-          wireSizes: [
+          listOfWireSizes: [
             "#14",
             "#12",
             "#10",
@@ -43,21 +43,48 @@ class App extends React.Component {
               wireSize: '',
               wireLength: ''
           },
-          voltageDropItemsArray: []
+          voltageDropItemsArray: [
+            {
+            wireTag: '1a',
+            load: '20',
+            loadType: 'Amps',
+            pf: '0.85',
+            voltage: '480',
+            numOfPhases: 'Three-Phase',
+            conductorMaterial: 'Copper',
+            conduitMaterial: 'Steel',
+            parallelRuns: '1',
+            wireSize: '#6',
+            wireLength: '150'
+            },
+            {
+            wireTag: '2a',
+            load: '30',
+            loadType: 'Amps',
+            pf: '0.85',
+            voltage: '480',
+            numOfPhases: 'Three-Phase',
+            conductorMaterial: 'Copper',
+            conduitMaterial: 'Steel',
+            parallelRuns: '1',
+            wireSize: '#1',
+            wireLength: '200'
+            }]
         };
         this.calcVD = this.calcVD.bind(this);
       }
     
-    calcVD() {
-        //this is the actual voltage drop calc
+    calcVD(vdInfo) {
+        //this function is called in handleSubmit() in Form.js. it will utilize the form data to perform the VD calc and then report all of the form data plus the VD calc result in an object to the array voltageDropItemsArray
+        console.log(vdInfo)
     }
 
     render() { 
         return(
         <div className="background">
             <Header headerName="Voltage Drop Calculator"/>
-            <Form wireSizes={this.state.wireSizes} calcVD={this.calcVD}/>
-            <List />
+            <Form listOfWireSizes={this.state.listOfWireSizes} calcVD={this.calcVD}/>
+            <List voltageDropItemsArray={this.state.voltageDropItemsArray}/>
         </div>
         );
     }
