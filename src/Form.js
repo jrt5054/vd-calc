@@ -1,37 +1,27 @@
 import React from "react";
 
 class Form extends React.Component {
+
   constructor() {
     super();
-    this.state = {
-      wireSizes: [
-        "#14",
-        "#12",
-        "#10",
-        "#8",
-        "#6",
-        "#4",
-        "#3",
-        "#2",
-        "#1",
-        "#1/0",
-        "#2/0",
-        "#3/0",
-        "#4/0",
-        "#250",
-        "#300",
-        "#400",
-        "#500",
-        "#600",
-        "#750",
-        "#1000"
-      ],
-    };
+    this.uniqueId = 0;
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.uniqueId +=1;
+    let newVDItem = {
+      // gather all items from form
+    }
+    // call calcVD function passed through props.
+
+  }
+  
   render() {
     return (
       <div className="container-fluid pt-3 pb-3">
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div class="row mb-3">
             <label htmlFor="wireTag" class="col-sm-3 col-form-label">
               Wire Tag:
@@ -111,11 +101,11 @@ class Form extends React.Component {
           </div>
 
           <div class="row mb-3">
-            <label htmlFor="conductorMaterial" class="col-sm-3 col-form-label">
+            <label htmlFor="conduitMaterial" class="col-sm-3 col-form-label">
               Conductor Material:
             </label>
             <div class="col-sm-5">
-              <select id="conductorMaterial" className="form-select">
+              <select id="conduitMaterial" className="form-select">
                 <option value="steel">Steel</option>
                 <option value="aluminum">Aluminum</option>
                 <option value="PVC">PVC</option>
@@ -138,7 +128,7 @@ class Form extends React.Component {
             </label>
             <div class="col-sm-5">
               <select id="wireSize" className="form-select">
-                {this.state.wireSizes.map((element, i) => {
+                {this.props.wireSizes.map((element, i) => {
                   return (
                     <option key={i} value={element}>
                       {element}
