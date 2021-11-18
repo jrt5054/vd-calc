@@ -25,7 +25,7 @@ class Form extends React.Component {
       wireSize: event.target.wireSize.value,
       wireLength: event.target.wireLength.value
       }
-    this.props.calcVD(newVDItem)
+    this.props.calcVD(newVDItemInfo)
 
   }
   
