@@ -92,22 +92,22 @@ class App extends React.Component {
     const { wireSize, conductorMaterial, conduitMaterial, pf } = impInput;
 
     // convert wire format from "#" to "num" by slicing out the first character and concatinating "num"
-    let numWireSize = "num" + wireSize.slice(0, 1);
+    const numWireSize = "num" + wireSize.slice(0, 1);
 
     // assign the correct value of the resistance by checking if the value of the conductor material from the form is copper. if it is not, it must be aluminum. take the values from the appropriate location of the state object.
     if (conductorMaterial === "copper") {
-      let resistance =
+      const resistance =
         this.state.listOfCuACResistances.numWireSize.conduitMaterial;
     } else {
-      let resistance =
+      const resistance =
         this.state.listOfAlACResistances.numWireSize.conduitMaterial;
     }
 
     // assign the correct value of the reactance by checking if the value of the conduit material from the form is either PVC or Aluminum. if it is not, it must be steel. take the values from the appropriate location of the state object. Note: reactance values for PVC and aluminum are the same from Table 9 of the NEC
     if (conduitMaterial === "PVC" || conduitMaterial === "aluminum") {
-      let reactance = this.state.listOfReactances.numWireSize.PVCAl;
+      const reactance = this.state.listOfReactances.numWireSize.PVCAl;
     } else {
-      let reactance = this.state.listOfReactances.numWireSize.steel;
+      const reactance = this.state.listOfReactances.numWireSize.steel;
     }
 
     // calculate the impedance using the following equation: impedance = (Resistance * cos(arccos(pf)))+(Reactance * sin(arccos(pf))). Note: arccos(pf) is the angle of the power triangle.

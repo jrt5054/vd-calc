@@ -11,7 +11,7 @@ class Form extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.uniqueId +=1;
-    let newVDItem = {
+    let newVDItemInfo = {
       id: this.uniqueId,
       wireTag: event.target.wireTag.value,
       load: event.target.load.value,
