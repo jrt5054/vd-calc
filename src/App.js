@@ -87,9 +87,14 @@ class App extends React.Component {
     this.calcVD = this.calcVD.bind(this);
   }
 
-  calcImp(wireSize, conductorMaterial, conduitMaterial, pf) {
-    // convert #12 to num12
+  calcImp(impInput) {
+    // simplify variable names using destructuring syntax
+    const { wireSize, conductorMaterial, conduitMaterial, pf } = impInput;
+
+    // convert wire format from "#" to "num" by slicing out the first character and concatinating "num"
     let numWireSize = "num" + wireSize.slice(0, 1);
+
+    // assign the correct value of the resistance by checking if the value of the conductor material from the form is copper. if it is not, it must be aluminum. take the values from the appropriate location of the state object.
     if (conductorMaterial === "copper") {
       let resistance =
         this.state.listOfCuACResistances.numWireSize.conduitMaterial;
@@ -98,13 +103,14 @@ class App extends React.Component {
         this.state.listOfAlACResistances.numWireSize.conduitMaterial;
     }
 
+    // assign the correct value of the reactance by checking if the value of the conduit material from the form is either PVC or Aluminum. if it is not, it must be steel. take the values from the appropriate location of the state object. Note: reactance values for PVC and aluminum are the same from Table 9 of the NEC
     if (conduitMaterial === "PVC" || conduitMaterial === "aluminum") {
       let reactance = this.state.listOfReactances.numWireSize.PVCAl;
     } else {
       let reactance = this.state.listOfReactances.numWireSize.steel;
     }
 
-    // impedance = (Resistance * cos(arccos(pf)))+(Reactance * sin(arccos(pf)))
+    // calculate the impedance using the following equation: impedance = (Resistance * cos(arccos(pf)))+(Reactance * sin(arccos(pf))). Note: arccos(pf) is the angle of the power triangle.
     let impedance =
       resistance * Math.cos(Math.acos(pf)) +
       reactance * Math.sin(Math.acos(pf));
@@ -112,43 +118,74 @@ class App extends React.Component {
     return impedance;
   }
 
-  calcAmps(load, loadType, phase, voltage, pf) {
+  calcAmps(ampInput) {
+    // simplify variable names using destructuring syntax
+    const { load, loadType, phase, voltage, pf } = ampInput;
+
     // if amps return amps
-    // if watts and single phase return watts/(pf * voltage)
-    // if watts and three phase return watts/(pf * voltage*1.73)
+    if (loadType === "amps") {
+      return load;
+    }
+    // if watts and single phase return watts/(voltage * pf)
+    if (loadType === "watts" && phase === "single") {
+      return load / (voltage * pf);
+    }
+    // if watts and three phase return watts/(voltage * pf * 1.73)
+    if (loadType === "watts" && phase === "three") {
+      return load / (voltage * pf * 1.73);
+    }
     // if VA and single phase return VA/voltage
+    if (loadType === "voltAmps" && phase === "single") {
+      return load / voltage;
+    }
     // if VA and three phase return VA/(voltage*1.73)
+    if (loadType === "voltAmps" && phase === "three") {
+      return load / (voltage * 1.73);
+    }
   }
 
   calcVD(newVDItemInfo) {
-    let impedance = this.calcImp(
-      newVDItemInfo.wireSize,
-      newVDItemInfo.conductorMaterial,
-      newVDItemInfo.conduitMaterial,
-      newVDItemInfo.pf
-    );
-    //this function is called in handleSubmit() in Form.js. it will utilize the form data to perform the VD calc and then report all of the form data plus the VD calc result in an object to the array voltageDropItemsArray
+    // simplify variable names using destructuring syntax
+    const {
+      wireTag,
+      load,
+      loadType,
+      pf,
+      voltage,
+      numOfPhases,
+      conductorMaterial,
+      conduitMaterial,
+      parallelRuns,
+      wireSize,
+      wireLength,
+    } = newVDItemInfo;
+
+    // create an input object for the function calls to simplify code
+    const impInput = { wireSize, conductorMaterial, conduitMaterial, pf };
+    const ampInput = { load, loadType, phase, voltage, pf };
+
+    // calculate the impedance
+    const impedance = this.calcImp(impInput);
+
+    // calculate the amperage based on the form data
+    const amps = this.calcAmps(ampInput);
 
     // 1 phase VD = impedance*(dist/1000)*Amps*2/(num parallel runs)
     // 3 phase VD = impedance*(dist/1000)*Amps*1.73/(num parallel runs)
     // console.log(vdInfo);
-    let amps = calcAmps;
-
-    if (newVDItemInfo.numOfPhases === "single") {
+    if (numOfPhases === "single") {
       let voltageDrop =
-        (impedance * (newVDItemInfo.wireLength / 1000) * amps * 2) /
-        newVDItemInfo.parallelRuns;
+        (impedance * (wireLength / 1000) * amps * 2) / parallelRuns;
     } else {
       let voltageDrop =
-        (impedance * (newVDItemInfo.wireLength / 1000) * amps * 1.73) /
-        newVDItemInfo.parallelRuns;
+        (impedance * (wireLength / 1000) * amps * 1.73) / parallelRuns;
     }
 
-    let voltageDropPercent = (voltageDrop / newVDItemInfo.voltage) * 100;
+    let voltageDropPercent = (voltageDrop / voltage) * 100;
 
-    return { 
-      voltageDrop: voltageDrop, 
-      voltageDropPercent: voltageDropPercent 
+    return {
+      voltageDrop: voltageDrop,
+      voltageDropPercent: voltageDropPercent,
     };
   }
 
