@@ -92,57 +92,65 @@ class App extends React.Component {
     const { wireSize, conductorMaterial, conduitMaterial, pf } = impInput;
 
     // convert wire format from "#" to "num" by slicing out the first character and concatinating "num"
-    const numWireSize = "num" + wireSize.slice(0, 1);
+    const numWireSizeFromForm = "num" + wireSize.slice(1);
+    console.log(`this is numbWireSize ${numWireSizeFromForm}`)
 
     // assign the correct value of the resistance by checking if the value of the conductor material from the form is copper. if it is not, it must be aluminum. take the values from the appropriate location of the state object.
     if (conductorMaterial === "copper") {
+      // Search through listOfACResistances keys for numWireSize match.
+      // Once found search through the value of that key (which is an object) for the key of the conduit material. return that value
       const resistance =
-        this.state.listOfCuACResistances.numWireSize.conduitMaterial;
-    } else {
-      const resistance =
-        this.state.listOfAlACResistances.numWireSize.conduitMaterial;
+        this.state.listOfCuACResistances.find((singleElement)=>{
+          
+          return singleElement.numWireSizeFromForm == numWireSizeFromForm
+        })
+        console.log(`this is the resistance: ${resistance}`)
     }
+    // } else {
+    //   const resistance =
+    //     this.state.listOfAlACResistances.numWireSize.conduitMaterial;
+    // }
 
     // assign the correct value of the reactance by checking if the value of the conduit material from the form is either PVC or Aluminum. if it is not, it must be steel. take the values from the appropriate location of the state object. Note: reactance values for PVC and aluminum are the same from Table 9 of the NEC
-    if (conduitMaterial === "PVC" || conduitMaterial === "aluminum") {
-      const reactance = this.state.listOfReactances.numWireSize.PVCAl;
-    } else {
-      const reactance = this.state.listOfReactances.numWireSize.steel;
-    }
+    // if (conduitMaterial === "PVC" || conduitMaterial === "aluminum") {
+    //   const reactance = this.state.listOfReactances.numWireSize.PVCAl;
+    // } else {
+    //   const reactance = this.state.listOfReactances.numWireSize.steel;
+    // }
 
     // calculate the impedance using the following equation: impedance = (Resistance * cos(arccos(pf)))+(Reactance * sin(arccos(pf))). Note: arccos(pf) is the angle of the power triangle.
-    let impedance =
-      resistance * Math.cos(Math.acos(pf)) +
-      reactance * Math.sin(Math.acos(pf));
+    // let impedance =
+    //   resistance * Math.cos(Math.acos(pf)) +
+    //   reactance * Math.sin(Math.acos(pf));
 
-    return impedance;
+    // return impedance;
   }
 
-  calcAmps(ampInput) {
-    // simplify variable names using destructuring syntax
-    const { load, loadType, phase, voltage, pf } = ampInput;
+  // calcAmps(ampInput) {
+  //   // simplify variable names using destructuring syntax
+  //   const { load, loadType, phase, voltage, pf } = ampInput;
 
-    // if amps return amps
-    if (loadType === "amps") {
-      return load;
-    }
-    // if watts and single phase return watts/(voltage * pf)
-    if (loadType === "watts" && phase === "single") {
-      return load / (voltage * pf);
-    }
-    // if watts and three phase return watts/(voltage * pf * 1.73)
-    if (loadType === "watts" && phase === "three") {
-      return load / (voltage * pf * 1.73);
-    }
-    // if VA and single phase return VA/voltage
-    if (loadType === "voltAmps" && phase === "single") {
-      return load / voltage;
-    }
-    // if VA and three phase return VA/(voltage*1.73)
-    if (loadType === "voltAmps" && phase === "three") {
-      return load / (voltage * 1.73);
-    }
-  }
+  //   // if amps return amps
+  //   if (loadType === "amps") {
+  //     return load;
+  //   }
+  //   // if watts and single phase return watts/(voltage * pf)
+  //   if (loadType === "watts" && phase === "single") {
+  //     return load / (voltage * pf);
+  //   }
+  //   // if watts and three phase return watts/(voltage * pf * 1.73)
+  //   if (loadType === "watts" && phase === "three") {
+  //     return load / (voltage * pf * 1.73);
+  //   }
+  //   // if VA and single phase return VA/voltage
+  //   if (loadType === "voltAmps" && phase === "single") {
+  //     return load / voltage;
+  //   }
+  //   // if VA and three phase return VA/(voltage*1.73)
+  //   if (loadType === "voltAmps" && phase === "three") {
+  //     return load / (voltage * 1.73);
+  //   }
+  // }
 
   calcVD(newVDItemInfo) {
     // simplify variable names using destructuring syntax
@@ -162,31 +170,31 @@ class App extends React.Component {
 
     // create an input object for the function calls to simplify code
     const impInput = { wireSize, conductorMaterial, conduitMaterial, pf };
-    const ampInput = { load, loadType, phase, voltage, pf };
+    // const ampInput = { load, loadType, phase, voltage, pf };
 
     // calculate the impedance
     const impedance = this.calcImp(impInput);
 
     // calculate the amperage based on the form data
-    const amps = this.calcAmps(ampInput);
+    // const amps = this.calcAmps(ampInput);
 
-    // 1 phase VD = impedance*(dist/1000)*Amps*2/(num parallel runs)
-    // 3 phase VD = impedance*(dist/1000)*Amps*1.73/(num parallel runs)
-    // console.log(vdInfo);
-    if (numOfPhases === "single") {
-      let voltageDrop =
-        (impedance * (wireLength / 1000) * amps * 2) / parallelRuns;
-    } else {
-      let voltageDrop =
-        (impedance * (wireLength / 1000) * amps * 1.73) / parallelRuns;
-    }
+    // // 1 phase VD = impedance*(dist/1000)*Amps*2/(num parallel runs)
+    // // 3 phase VD = impedance*(dist/1000)*Amps*1.73/(num parallel runs)
+    // // console.log(vdInfo);
+    // if (numOfPhases === "single") {
+    //   let voltageDrop =
+    //     (impedance * (wireLength / 1000) * amps * 2) / parallelRuns;
+    // } else {
+    //   let voltageDrop =
+    //     (impedance * (wireLength / 1000) * amps * 1.73) / parallelRuns;
+    // }
 
-    let voltageDropPercent = (voltageDrop / voltage) * 100;
+    // let voltageDropPercent = (voltageDrop / voltage) * 100;
 
-    return {
-      voltageDrop: voltageDrop,
-      voltageDropPercent: voltageDropPercent,
-    };
+    // return {
+    //   voltageDrop: voltageDrop,
+    //   voltageDropPercent: voltageDropPercent,
+    // };
   }
 
   render() {
