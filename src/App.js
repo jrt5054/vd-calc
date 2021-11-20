@@ -8,6 +8,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      vdItemArray: [],
       listOfWireSizes: [
         "#14",
         "#12",
@@ -101,6 +102,12 @@ class App extends React.Component {
       ]
     };
     this.calcVD = this.calcVD.bind(this);
+    this.addLineItem = this.addLineItem.bind(this);
+  }
+
+  addLineItem(newLineItem) {
+    let updatedLineItem = [...this.state.vdItemArray, newLineItem];
+    this.setState({vdItemArray: updatedLineItem})
   }
 
   calcImp(impInput) {
@@ -209,6 +216,7 @@ class App extends React.Component {
       wireSize,
       wireLength,
     } = newVDItemInfo;
+
     let voltageDrop;
 
     console.log(`Wire Tag: ${wireTag}`);
@@ -239,10 +247,15 @@ class App extends React.Component {
     console.log(`Voltage Drop: ${voltageDrop}`);
     console.log(`Voltage Drop Percent: ${voltageDropPercent}`);
 
-    return {
-      voltageDrop: voltageDrop,
-      voltageDropPercent: voltageDropPercent,
-    };
+    newVDItemInfo.voltageDrop = voltageDrop;
+    newVDItemInfo.voltageDropPercent = voltageDropPercent;
+
+    this.addLineItem(newVDItemInfo)
+
+    // return {
+    //   voltageDrop: voltageDrop,
+    //   voltageDropPercent: voltageDropPercent,
+    // };
   }
 
   render() {
@@ -253,7 +266,7 @@ class App extends React.Component {
           listOfWireSizes={this.state.listOfWireSizes}
           calcVD={this.calcVD}
         />
-        <List voltageDropItemsArray={this.state.voltageDropItemsArray} />
+        <List vdItemArray={this.state.vdItemArray} />
       </div>
     );
   }
