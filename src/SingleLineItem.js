@@ -2,7 +2,11 @@ import React from 'react';
 
 class SingleLineItem extends React.Component {
     render() { 
-        return <div></div>;
+        return (
+        <li key={this.props.vdItemArray.id}>
+            {this.props.vdItemArray.wireTag}
+        </li>)
+        ;
     }
 }
  

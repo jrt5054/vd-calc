@@ -2,7 +2,7 @@ import React from "react";
 import "./CSS/App.css";
 import Header from "./Header";
 import Form from "./Form";
-import List from "./List";
+import SingleLineItem from "./SingleLineItem";
 
 class App extends React.Component {
   constructor() {
@@ -266,7 +266,11 @@ class App extends React.Component {
           listOfWireSizes={this.state.listOfWireSizes}
           calcVD={this.calcVD}
         />
-        <List vdItemArray={this.state.vdItemArray} />
+        <ol>
+            {this.state.vdItemArray.map((singleElement)=>{
+                return <SingleLineItem vdItemArray={this.state.vdItemArray} />
+            })}
+        </ol>
       </div>
     );
   }
