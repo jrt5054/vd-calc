@@ -103,11 +103,19 @@ class App extends React.Component {
     };
     this.calcVD = this.calcVD.bind(this);
     this.addLineItem = this.addLineItem.bind(this);
+    this.removeLineItem = this.removeLineItem.bind(this);
   }
 
   addLineItem(newLineItem) {
     let updatedLineItem = [...this.state.vdItemArray, newLineItem];
     this.setState({vdItemArray: updatedLineItem})
+  }
+
+  removeLineItem(idToRemove) {
+    let updatedList = [...this.state.vdItemArray];
+    let index = updatedList.findIndex(item => item.id === idToRemove)
+    updatedList.splice(index,1);
+    this.setState({vdItemArray: updatedList})
   }
 
   calcImp(impInput) {
@@ -268,7 +276,7 @@ class App extends React.Component {
         />
         <ol>
             {this.state.vdItemArray.map((singleElement)=>{
-                return <SingleLineItem lineItem={singleElement} />
+                return <SingleLineItem key={singleElement.id} lineItem={singleElement} removeLineItem={this.removeLineItem} />
             })}
         </ol>
       </div>

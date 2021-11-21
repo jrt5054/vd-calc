@@ -1,6 +1,16 @@
 import React from 'react';
 
 class SingleLineItem extends React.Component {
+    constructor(){
+        super();
+        this.handleClick = this.handleClick.bind(this)
+    }
+
+    handleClick(event){
+        let lineItemId = Number(event.target.id);
+        this.props.removeLineItem(lineItemId);
+    }
+
     render() { 
         // simplify variable names using destructuring syntax
         let {
@@ -20,8 +30,9 @@ class SingleLineItem extends React.Component {
             voltageDropPercent
         } = this.props.lineItem;
         return (
-        <li key={this.props.lineItem.id}>
-            {`ID: ${id} | 
+        <li>
+            {
+            `ID: ${id} | 
             Wire Tag: ${wireTag} | 
             Load: ${load} ${loadType} | 
             Power Factor: ${pf} | 
@@ -35,6 +46,7 @@ class SingleLineItem extends React.Component {
             Voltage Drop: ${voltageDrop}V | 
             Voltage Drop Percent: ${voltageDropPercent}%`
             }
+            <button id={id} className="btn btn-danger" onClick={this.handleClick}>X</button>
             
         </li>)
         ;
