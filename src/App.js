@@ -268,7 +268,7 @@ class App extends React.Component {
         />
         <ol>
             {this.state.vdItemArray.map((singleElement)=>{
-                return <SingleLineItem vdItemArray={this.state.vdItemArray} />
+                return <SingleLineItem lineItem={singleElement} />
             })}
         </ol>
       </div>
