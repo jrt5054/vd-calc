@@ -106,6 +106,10 @@ class App extends React.Component {
     this.removeLineItem = this.removeLineItem.bind(this);
   }
 
+  roundToTwoDec(num){
+    return Math.round( ( num + Number.EPSILON ) * 100) / 100;
+  }
+
   addLineItem(newLineItem) {
     let updatedLineItem = [...this.state.vdItemArray, newLineItem];
     this.setState({vdItemArray: updatedLineItem})
@@ -255,8 +259,8 @@ class App extends React.Component {
     console.log(`Voltage Drop: ${voltageDrop}`);
     console.log(`Voltage Drop Percent: ${voltageDropPercent}`);
 
-    newVDItemInfo.voltageDrop = voltageDrop;
-    newVDItemInfo.voltageDropPercent = voltageDropPercent;
+    newVDItemInfo.voltageDrop = this.roundToTwoDec(voltageDrop);
+    newVDItemInfo.voltageDropPercent = this.roundToTwoDec(voltageDropPercent);
 
     this.addLineItem(newVDItemInfo)
 
