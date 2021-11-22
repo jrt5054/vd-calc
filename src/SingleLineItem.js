@@ -47,7 +47,6 @@ class SingleLineItem extends React.Component {
             Voltage Drop Percent: ${voltageDropPercent}%`
             }
             <button id={id} className="btn btn-danger" onClick={this.handleClick}>X</button>
-            
         </li>)
         ;
     }

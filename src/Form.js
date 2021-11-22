@@ -38,7 +38,7 @@ class Form extends React.Component {
               Wire Tag:
             </label>
             <div className="col-sm-5">
-              <input type="text" className="form-control" id="wireTag" defaultValue="1a" />
+              <input type="text" className="form-control" id="wireTag" defaultValue="1a" placeholder="ex. 1A"/>
             </div>
           </div>
 
@@ -47,7 +47,7 @@ class Form extends React.Component {
               Electrical Load:
             </label>
             <div className="col-sm-5">
-              <input type="text" className="form-control" id="load" defaultValue="10" />
+              <input type="text" className="form-control" id="load" defaultValue="10" placeholder="ex. 10"/>
             </div>
           </div>
 
@@ -69,7 +69,7 @@ class Form extends React.Component {
               Power Factor:
             </label>
             <div className="col-sm-5">
-              <input type="text" className="form-control" id="pf" defaultValue="0.8"/>
+              <input type="text" className="form-control" id="pf" defaultValue="0.8" placeholder="ex. 0.85"/>
             </div>
           </div>
 
@@ -129,7 +129,7 @@ class Form extends React.Component {
               Number of Parallel Runs:
             </label>
             <div className="col-sm-5">
-              <input type="text" className="form-control" id="parallelRuns" defaultValue="1" />
+              <input type="text" className="form-control" id="parallelRuns" defaultValue="1" placeholder="ex. 1"/>
             </div>
           </div>
 
@@ -152,10 +152,10 @@ class Form extends React.Component {
 
           <div className="row mb-3">
             <label htmlFor="wireLength" className="col-sm-3 col-form-label">
-              Wire Length:
+              Wire Length (ft):
             </label>
             <div className="col-sm-5">
-              <input type="text" className="form-control" id="wireLength" defaultValue="100" />
+              <input type="text" className="form-control" id="wireLength" defaultValue="100" placeholder="ex. 150"/>
             </div>
           </div>
 
