@@ -32,8 +32,7 @@ class SingleLineItem extends React.Component {
         return (
         <li>
             {
-            `ID: ${id} | 
-            Wire Tag: ${wireTag} | 
+            `Wire Tag: ${wireTag} | 
             Load: ${load} ${loadType} | 
             Power Factor: ${pf} | 
             Voltage: ${voltage}V | 
