@@ -31,33 +31,33 @@ class Form extends React.Component {
   
   render() {
     return (
-      <div className="container-fluid pt-3 pb-3">
-        <form onSubmit={this.handleSubmit}>
+      <div>
+        <form onSubmit={this.handleSubmit} className="form-area">
           <fieldset>
-            <legend>Circuit Information:</legend>
-            <div className="row mb-3">
-              <label htmlFor="wireTag" className="col-sm-3 col-form-label">
+            <legend>Voltage Drop Calculator</legend>
+            <div className="input-div">
+              <label htmlFor="wireTag" className="form-label col-form-label">
                 Wire Tag:
               </label>
-              <div className="col-sm-5">
+              <div className="form-input">
                 <input type="text" className="form-control" id="wireTag" placeholder="ex. 1A"/>
               </div>
             </div>
 
-            <div className="row mb-3">
-              <label htmlFor="load" className="col-sm-3 col-form-label">
+            <div className="input-div">
+              <label htmlFor="load" className="form-label col-form-label">
                 Electrical Load:
               </label>
-              <div className="col-sm-5">
+              <div className="form-input">
                 <input type="text" className="form-control" id="load" placeholder="ex. 10"/>
               </div>
             </div>
 
-            <div className="row mb-3">
-              <label htmlFor="loadType" className="col-sm-3 col-form-label">
+            <div className="input-div">
+              <label htmlFor="loadType" className="form-label col-form-label">
                 Load Type:
               </label>
-              <div className="col-sm-5">
+              <div className="form-input">
                 <select id="loadType" className="form-select">
                   <option value="amps">Amps</option>
                   <option value="watts">Watts</option>
@@ -66,20 +66,20 @@ class Form extends React.Component {
               </div>
             </div>
 
-            <div className="row mb-3">
-              <label htmlFor="pf" className="col-sm-3 col-form-label">
+            <div className="input-div">
+              <label htmlFor="pf" className="form-label col-form-label">
                 Power Factor:
               </label>
-              <div className="col-sm-5">
+              <div className="form-input">
                 <input type="text" className="form-control" id="pf" placeholder="ex. 0.85"/>
               </div>
             </div>
 
-            <div className="row mb-3">
-              <label htmlFor="voltage" className="col-sm-3 col-form-label">
+            <div className="input-div">
+              <label htmlFor="voltage" className="form-label col-form-label">
                 Voltage:
               </label>
-              <div className="col-sm-5">
+              <div className="form-input">
                 <select id="voltage" className="form-select">
                   <option value="120">120V</option>
                   <option value="208">208V</option>
@@ -89,11 +89,11 @@ class Form extends React.Component {
               </div>
             </div>
 
-            <div className="row mb-3">
-              <label htmlFor="numOfPhases" className="col-sm-3 col-form-label">
+            <div className="input-div">
+              <label htmlFor="numOfPhases" className="form-label col-form-label">
                 Number of Phases:
               </label>
-              <div className="col-sm-5">
+              <div className="form-input">
                 <select id="numOfPhases" className="form-select">
                   <option value="single">Single Phase</option>
                   <option value="three">Three Phase</option>
@@ -101,11 +101,11 @@ class Form extends React.Component {
               </div>
             </div>
 
-            <div className="row mb-3">
-              <label htmlFor="conductorMaterial" className="col-sm-3 col-form-label">
+            <div className="input-div">
+              <label htmlFor="conductorMaterial" className="form-label col-form-label">
                 Conductor Material:
               </label>
-              <div className="col-sm-5">
+              <div className="form-input">
                 <select id="conductorMaterial" className="form-select">
                   <option value="copper">Copper</option>
                   <option value="aluminum">Aluminum</option>
@@ -113,11 +113,11 @@ class Form extends React.Component {
               </div>
             </div>
 
-            <div className="row mb-3">
-              <label htmlFor="conduitMaterial" className="col-sm-3 col-form-label">
+            <div className="input-div">
+              <label htmlFor="conduitMaterial" className="form-label col-form-label">
                 Conductor Material:
               </label>
-              <div className="col-sm-5">
+              <div className="form-input">
                 <select id="conduitMaterial" className="form-select">
                   <option value="steel">Steel</option>
                   <option value="aluminum">Aluminum</option>
@@ -126,20 +126,20 @@ class Form extends React.Component {
               </div>
             </div>
 
-            <div className="row mb-3">
-              <label htmlFor="parallelRuns" className="col-sm-3 col-form-label">
+            <div className="input-div">
+              <label htmlFor="parallelRuns" className="form-label col-form-label">
                 Number of Parallel Runs:
               </label>
-              <div className="col-sm-5">
+              <div className="form-input">
                 <input type="text" className="form-control" id="parallelRuns" placeholder="ex. 1"/>
               </div>
             </div>
 
-            <div className="row mb-3">
-              <label htmlFor="wireSize" className="col-sm-3 col-form-label">
+            <div className="input-div">
+              <label htmlFor="wireSize" className="form-label col-form-label">
                 Wire Size:
               </label>
-              <div className="col-sm-5">
+              <div className="form-input">
                 <select id="wireSize" className="form-select" >
                   {this.props.listOfWireSizes.map((element, i) => {
                     return (
@@ -152,18 +152,16 @@ class Form extends React.Component {
               </div>
             </div>
 
-            <div className="row mb-3">
-              <label htmlFor="wireLength" className="col-sm-3 col-form-label">
+            <div className="input-div">
+              <label htmlFor="wireLength" className="form-label col-form-label">
                 Wire Length (ft):
               </label>
-              <div className="col-sm-5">
+              <div className="form-input">
                 <input type="text" className="form-control" id="wireLength" placeholder="ex. 150"/>
               </div>
             </div>
-
-            <div className="col-12">
-              <button type="submit" className="btn btn-primary">Add</button>
-              </div>
+            <button type="submit" className="submit-button btn btn-primary">Submit</button>
+              
             </fieldset>
         </form>
       </div>
