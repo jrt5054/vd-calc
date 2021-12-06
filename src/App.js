@@ -1,6 +1,6 @@
 import React from "react";
 import "./CSS/App.css";
-import Header from "./Header";
+// import Header from "./Header";
 import Form from "./Form";
 import SingleLineItem from "./SingleLineItem";
 
@@ -273,7 +273,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="background">
-        <Header headerName="Voltage Drop Calculator" />
+        {/* <Header headerName="Voltage Drop Calculator" /> */}
         <Form
           listOfWireSizes={this.state.listOfWireSizes}
           calcVD={this.calcVD}
