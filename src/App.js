@@ -278,11 +278,14 @@ class App extends React.Component {
           listOfWireSizes={this.state.listOfWireSizes}
           calcVD={this.calcVD}
         />
-        <ol>
-            {this.state.vdItemArray.map((singleElement)=>{
-                return <SingleLineItem key={singleElement.id} lineItem={singleElement} removeLineItem={this.removeLineItem} />
-            })}
-        </ol>
+        <div className="results-area">
+          <p className="results-header">Results</p>
+          <ol className="results-list">
+              {this.state.vdItemArray.map((singleElement)=>{
+                  return <SingleLineItem key={singleElement.id} lineItem={singleElement} removeLineItem={this.removeLineItem} />
+              })}
+          </ol>
+        </div>
       </div>
     );
   }
