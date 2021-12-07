@@ -34,6 +34,7 @@ class Form extends React.Component {
 
           <h1>Voltage Drop Calculator</h1>
 
+{/* WIRE TAG */}
           <div className="input-area-div">
             <label className="form-label" htmlFor="wireTag">
               Wire Tag:
@@ -45,7 +46,7 @@ class Form extends React.Component {
               placeholder="ex. 1A"
             />
           </div>
-
+{/* LOAD */}
           <div className="input-area-div">
             <label htmlFor="load" className="form-label">
               Electrical Load:
@@ -57,7 +58,7 @@ class Form extends React.Component {
               placeholder="ex. 10"
             />
           </div>
-
+{/* LOAD TYPE */}
           <div className="input-area-div">
             <label htmlFor="loadType" className="form-label">
               Load Type:
@@ -68,7 +69,7 @@ class Form extends React.Component {
               <option value="voltAmps">Volt-Amps</option>
             </select>
           </div>
-
+{/* POWER FACTOR */}
           <div className="input-area-div">
             <label htmlFor="pf" className="form-label">
               Power Factor:
@@ -80,7 +81,7 @@ class Form extends React.Component {
               placeholder="ex. 0.85"
             />
           </div>
-
+{/* VOLTAGE */}
           <div className="input-area-div">
             <label htmlFor="voltage" className="form-label">
               Voltage:
@@ -92,7 +93,7 @@ class Form extends React.Component {
               <option value="480">480V</option>
             </select>
           </div>
-
+{/* NUMBER OF PHASES */}
           <div className="input-area-div">
             <label htmlFor="numOfPhases" className="form-label">
               Number of Phases:
@@ -102,7 +103,7 @@ class Form extends React.Component {
               <option value="three">Three Phase</option>
             </select>
           </div>
-
+{/* CONDUCTOR MATERIAL */}
           <div className="input-area-div">
             <label htmlFor="conductorMaterial" className="form-label">
               Conductor Material:
@@ -112,7 +113,7 @@ class Form extends React.Component {
               <option value="aluminum">Aluminum</option>
             </select>
           </div>
-
+{/* CONDUIT MATERIAL */}
           <div className="input-area-div">
             <label htmlFor="conduitMaterial" className="form-label">
               Conduit Material:
@@ -123,7 +124,7 @@ class Form extends React.Component {
               <option value="PVC">PVC</option>
             </select>
           </div>
-
+{/* NUMBER OF PARALLEL RUNS */}
           <div className="input-area-div">
             <label htmlFor="parallelRuns" className="form-label">
               Number of Parallel Runs:
@@ -135,7 +136,7 @@ class Form extends React.Component {
               placeholder="ex. 1"
             />
           </div>
-
+{/* WIRE SIZE */}
           <div className="input-area-div">
             <label htmlFor="wireSize" className="form-label">
               Wire Size:
@@ -150,7 +151,7 @@ class Form extends React.Component {
               })}
             </select>
           </div>
-
+{/* WIRE LENGTH */}
           <div className="input-area-div">
             <label htmlFor="wireLength" className="form-label">
               Wire Length (ft):
@@ -162,7 +163,7 @@ class Form extends React.Component {
               placeholder="ex. 150"
             />
           </div>
-
+{/* SUBMIT BUTTON */}
           <button type="submit" className="submit-button">
             SUBMIT
           </button>
