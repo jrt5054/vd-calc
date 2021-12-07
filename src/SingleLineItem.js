@@ -31,18 +31,21 @@ class SingleLineItem extends React.Component {
         } = this.props.lineItem;
         return (
         <li>
+            <p className="bold">{`Wire ${wireTag}`}</p>
+            <span>Input: </span>
             {
-            `Wire Tag: ${wireTag} | 
-            Load: ${load} ${loadType} | 
-            Power Factor: ${pf} | 
-            Voltage: ${voltage}V | 
-            Phase: ${numOfPhases} | 
-            Conductor Material: ${conductorMaterial} | 
-            Conduit Material: ${conduitMaterial} | 
-            # of Parallel Runs: ${parallelRuns} | 
-            Wire Size: ${wireSize} | 
-            Wire Length: ${wireLength}ft | 
-            Voltage Drop: ${voltageDrop}V | 
+            `Load: ${load} ${loadType}, 
+            Power Factor: ${pf}, 
+            Voltage: ${voltage}V, 
+            Phase: ${numOfPhases}, 
+            Conductor Material: ${conductorMaterial}, 
+            Conduit Material: ${conduitMaterial}, 
+            # of Parallel Runs: ${parallelRuns}, 
+            Wire Size: ${wireSize}, 
+            Wire Length: ${wireLength}ft`}
+            <br/>
+            {
+            `Voltage Drop: ${voltageDrop}V | 
             Voltage Drop Percent: ${voltageDropPercent}%`
             }
             <button id={id} className="btn btn-danger" onClick={this.handleClick}>X</button>
