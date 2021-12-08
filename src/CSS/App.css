@@ -52,6 +52,11 @@ p {
   border-radius: 3px;
 }
 
+.form-input {
+  /* this adjusts the very small spacing difference between selects and text inputs */
+  padding-left: calc(.75em + 6px);
+}
+
 h1 {
   margin: 0;
   text-align: center;
