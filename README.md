@@ -69,7 +69,6 @@ I thought this would be a good project to tackle as it is a calculation that nee
 
 Simply fill in all form fields and click submit. This can be done as many times as is necessary. If you want to delete a line item, simply click on the X in the corner.
 
-
 ## Credits
 
 The National Electric Code (2017)
