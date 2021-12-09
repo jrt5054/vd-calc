@@ -52,23 +52,23 @@ Load type - Volt-Amps,
 - **I** - Load of circuit measured in Amperes (Amps). The calculator can take several load types (Amps, Watts, Volt-Amps) and will automatically calculate the number of Amps.
 - **PR** - Number of Parallel Runs
 - **1.73** - This is the square root of 3.
----
+
 
 ## Motivation
 
 I thought this would be a good project to tackle as it is a calculation that needs to be run on every wire in a project which can be quite numerous. Having a tool to make performing the calculations more efficient can save a substantial amount of time. 
----
+
 
 ## Tech/framework used
 
 <b>Built with</b>
 - [React](https://reactjs.org/)
----
+
 
 ## How to use?
 
 Simply fill in all form fields and click submit. This can be done as many times as is necessary. If you want to delete a line item, simply click on the X in the corner.
----
+
 
 ## Credits
 
