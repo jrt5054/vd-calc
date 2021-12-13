@@ -1,6 +1,5 @@
 import React from "react";
 import "./CSS/App.css";
-// import Header from "./Header";
 import Form from "./Form";
 import SingleLineItem from "./SingleLineItem";
 
@@ -31,6 +30,7 @@ class App extends React.Component {
         "#750",
         "#1000",
       ],
+      // The following array has its values taken from the 2017 NEC Chapter 9 Table 9
       listOfReactances: [
         { wire: "num14", PVC: 0.058, aluminum: 0.058, steel: 0.073 },
         { wire: "num12", PVC: 0.054, aluminum: 0.054, steel: 0.068 },
@@ -54,6 +54,7 @@ class App extends React.Component {
         { wire: "num750", PVC: 0.038, aluminum: 0.038, steel: 0.048 },
         { wire: "num1000", PVC: 0.037, aluminum: 0.037, steel: 0.046 },
       ],
+      // The following array has its values taken from the 2017 NEC Chapter 9 Table 9
       listOfCuACResistances: [
         { wire: "num14", PVC: 3.1, aluminum: 3.1, steel: 3.1 },
         { wire: "num12", PVC: 2, aluminum: 2, steel: 2 },
@@ -77,6 +78,7 @@ class App extends React.Component {
         { wire: "num750", PVC: 0.019, aluminum: 0.024, steel: 0.021 },
         { wire: "num1000", PVC: 0.015, aluminum: 0.019, steel: 0.018 }
       ],
+      // The following array has its values taken from the 2017 NEC Chapter 9 Table 9
       listOfAlACResistances: [
         // { wire: "num14", PVC: 0., aluminum: 0., steel: 0. }, this needs to be handled becasue there is no value for #14 aluminum wire
         { wire: "num12", PVC: 3.2, aluminum: 3.2, steel: 3.2 },
@@ -101,20 +103,23 @@ class App extends React.Component {
         { wire: "num1000", PVC: 0.023, aluminum: 0.027, steel: 0.025 }
       ]
     };
+    // the following functions have their 'this' bound to App.js
     this.calcVD = this.calcVD.bind(this);
     this.addLineItem = this.addLineItem.bind(this);
     this.removeLineItem = this.removeLineItem.bind(this);
   }
-
+  // The following function takes a number input and returns it rounded to two decimal places
   roundToTwoDec(num){
     return Math.round( ( num + Number.EPSILON ) * 100) / 100;
   }
 
+  // The following function takes a new object line item and updates the state with new object.
   addLineItem(newLineItem) {
     let updatedLineItem = [...this.state.vdItemArray, newLineItem];
     this.setState({vdItemArray: updatedLineItem})
   }
 
+  // The following function takes an ID as an input, 
   removeLineItem(idToRemove) {
     let updatedList = [...this.state.vdItemArray];
     let index = updatedList.findIndex(item => item.id === idToRemove)
