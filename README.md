@@ -2,6 +2,8 @@
 
 This project is a web-based calculator that utilizes the calculation for voltage drop as specified in Chapter 9 Table 9 of the 2017 National Electric Code (NEC). It takes the input data from the form (specified below) and applies it to the following formulas.
 
+[Link to calculator](https://jrt5054.github.io/vd-calc/)
+
 ### Input Data
 
 - **Wire Tag** - This is strictly for administrative purposes and has no effect on the output.
