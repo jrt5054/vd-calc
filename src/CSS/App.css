@@ -15,23 +15,6 @@ p {
   margin: 0;
 }
 
-.form-area-div {
-  width: 555px;
-  height: 100px;
-  position: fixed;
-}
-
-.form-area {
-  border-radius: 10px;
-  padding: 2em;
-  width: 555px;
-  background: white;
-  margin: var(--form-margin);
-  margin-bottom: 1em;
-  display: flex;
-  flex-direction: column;
-}
-
 /* made up of form-label and form-input */
 .input-area-div {
   display: flex;
@@ -103,20 +86,6 @@ h1 {
   font-weight: 500;
 }
 
-.results-area {
-  position: absolute;
-  right: 0;
-  width: 60vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.results-header {
-  margin-top: 5em;
-  align-self: center;
-}
-
 li {
   list-style: none;
   border-radius: 10px;
@@ -125,7 +94,6 @@ li {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1em;
-  
   background-color: #adc3ff;
   display: flex;
   flex-direction: column;
@@ -153,4 +121,73 @@ li:first-child {
 .wire-title {
   font-weight: 500;
   font-size: 1.25rem;
+}
+
+/* BELOW IS FOR LARGE SCREENS */
+@media screen and (min-width: 1200px){
+  .form-area-div {
+    width: 555px;
+    height: 100px;
+    position: fixed;
+  }
+
+  .results-area {
+    position: absolute;
+    right: 0;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .results-header {
+    margin-top: 5em;
+    align-self: center;
+  }
+
+  .form-area {
+    border-radius: 10px;
+    padding: 2em;
+    width: 555px;
+    background: white;
+    margin: var(--form-margin);
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* ======================================================= */
+/* BELOW IS FOR SMALL SCREENS */
+@media screen and (max-width: 1200px){
+  html {
+    background: #ff0000;
+  }
+
+  .form-area-div {
+    width: 555px;
+    height: 100px;
+  }
+
+  .results-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .results-header {
+    margin-top: 5em;
+    align-self: center;
+  }
+
+  .form-area {
+    border-radius: 10px;
+    padding: 2em;
+    width: 555px;
+    background: white;
+    margin: var(--form-margin);
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+  }
 }
