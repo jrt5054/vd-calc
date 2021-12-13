@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/Voltage-Drop-Calculator/static/css/main.fdf48215.chunk.css",
-    "main.js": "/Voltage-Drop-Calculator/static/js/main.72defa8b.chunk.js",
-    "main.js.map": "/Voltage-Drop-Calculator/static/js/main.72defa8b.chunk.js.map",
-    "runtime-main.js": "/Voltage-Drop-Calculator/static/js/runtime-main.5c3d7b4c.js",
-    "runtime-main.js.map": "/Voltage-Drop-Calculator/static/js/runtime-main.5c3d7b4c.js.map",
-    "static/js/2.9824c14c.chunk.js": "/Voltage-Drop-Calculator/static/js/2.9824c14c.chunk.js",
-    "static/js/2.9824c14c.chunk.js.map": "/Voltage-Drop-Calculator/static/js/2.9824c14c.chunk.js.map",
-    "static/js/3.6f97d17a.chunk.js": "/Voltage-Drop-Calculator/static/js/3.6f97d17a.chunk.js",
-    "static/js/3.6f97d17a.chunk.js.map": "/Voltage-Drop-Calculator/static/js/3.6f97d17a.chunk.js.map",
-    "index.html": "/Voltage-Drop-Calculator/index.html",
-    "static/css/main.fdf48215.chunk.css.map": "/Voltage-Drop-Calculator/static/css/main.fdf48215.chunk.css.map",
-    "static/js/2.9824c14c.chunk.js.LICENSE.txt": "/Voltage-Drop-Calculator/static/js/2.9824c14c.chunk.js.LICENSE.txt"
+    "main.css": "/vd-calc/static/css/main.fdf48215.chunk.css",
+    "main.js": "/vd-calc/static/js/main.72defa8b.chunk.js",
+    "main.js.map": "/vd-calc/static/js/main.72defa8b.chunk.js.map",
+    "runtime-main.js": "/vd-calc/static/js/runtime-main.53ec0d2c.js",
+    "runtime-main.js.map": "/vd-calc/static/js/runtime-main.53ec0d2c.js.map",
+    "static/js/2.9824c14c.chunk.js": "/vd-calc/static/js/2.9824c14c.chunk.js",
+    "static/js/2.9824c14c.chunk.js.map": "/vd-calc/static/js/2.9824c14c.chunk.js.map",
+    "static/js/3.6f97d17a.chunk.js": "/vd-calc/static/js/3.6f97d17a.chunk.js",
+    "static/js/3.6f97d17a.chunk.js.map": "/vd-calc/static/js/3.6f97d17a.chunk.js.map",
+    "index.html": "/vd-calc/index.html",
+    "static/css/main.fdf48215.chunk.css.map": "/vd-calc/static/css/main.fdf48215.chunk.css.map",
+    "static/js/2.9824c14c.chunk.js.LICENSE.txt": "/vd-calc/static/js/2.9824c14c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.5c3d7b4c.js",
+    "static/js/runtime-main.53ec0d2c.js",
     "static/js/2.9824c14c.chunk.js",
     "static/css/main.fdf48215.chunk.css",
     "static/js/main.72defa8b.chunk.js"
