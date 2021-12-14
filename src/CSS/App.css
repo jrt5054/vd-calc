@@ -27,13 +27,7 @@ p {
   align-self: center;
 }
 
-/* part of input-div */
-.form-input, .form-select {
-  flex: 1.5 1 0;
-  padding: .75em;
-  border: 1px solid #f3f3f3;
-  border-radius: 3px;
-}
+
 
 .form-input {
   /* this adjusts the very small spacing difference between selects and text inputs */
@@ -126,9 +120,11 @@ li:first-child {
 /* BELOW IS FOR LARGE SCREENS */
 @media screen and (min-width: 1200px){
   .form-area-div {
-    width: 555px;
-    height: 100px;
+    /* min-width: 40vw; */
+    height: 100vh;
     position: fixed;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .results-area {
@@ -155,6 +151,14 @@ li:first-child {
     display: flex;
     flex-direction: column;
   }
+
+  /* part of input-div */
+.form-input, .form-select {
+  flex: 1.5 1 0;
+  padding: .75em;
+  border: 1px solid #f3f3f3;
+  border-radius: 3px;
+}
 }
 
 /* ======================================================= */
@@ -165,14 +169,14 @@ li:first-child {
   }
 
   .form-area-div {
-    width: 555px;
-    height: 100px;
+    width: 100vw;
   }
 
   .results-area {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100vw;
   }
   
   .results-header {
@@ -183,11 +187,18 @@ li:first-child {
   .form-area {
     border-radius: 10px;
     padding: 2em;
-    width: 555px;
+    width: auto;
     background: white;
     margin: var(--form-margin);
     margin-bottom: 1em;
     display: flex;
     flex-direction: column;
+  }
+  /* part of input-div */
+  .form-input, .form-select {
+    flex: 1.5 auto 0;
+    padding: .75em;
+    border: 1px solid #f3f3f3;
+    border-radius: 3px;
   }
 }
