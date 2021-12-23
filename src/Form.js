@@ -168,7 +168,7 @@ class Form extends React.Component {
             SUBMIT
           </button>
         </form>
-        <p>created by <span className="underline">thisisjoshtaylor</span></p>
+        <p className="copywrite">created by <a href="https://thisisjoshtaylor.com/">thisisjoshtaylor</a></p>
       </div>
     );
   }

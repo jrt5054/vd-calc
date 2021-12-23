@@ -1,3 +1,6 @@
+/* ============================================= */
+/* GENERAL */
+/* ============================================= */
 * {
   box-sizing: border-box;
   font-family: 'Rubik', sans-serif;
@@ -5,6 +8,7 @@
 
 :root {
   --form-margin: 3em;
+  --small-font: .75em;
 }
 
 html {
@@ -15,23 +19,17 @@ p {
   margin: 0;
 }
 
-.form-area-div {
-  width: 555px;
-  height: 100px;
-  position: fixed;
+.underline {
+  text-decoration: underline;
 }
 
-.form-area {
-  border-radius: 10px;
-  padding: 2em;
-  width: 555px;
-  background: white;
-  margin: var(--form-margin);
-  margin-bottom: 1em;
-  display: flex;
-  flex-direction: column;
+.bold {
+  font-weight: 500;
 }
 
+/* ============================================= */
+/* FORM AREA */
+/* ============================================= */
 /* made up of form-label and form-input */
 .input-area-div {
   display: flex;
@@ -42,14 +40,6 @@ p {
 .form-label {
   flex: 1 1 0;
   align-self: center;
-}
-
-/* part of input-div */
-.form-input, .form-select {
-  flex: 1.5 1 0;
-  padding: .75em;
-  border: 1px solid #f3f3f3;
-  border-radius: 3px;
 }
 
 .form-input {
@@ -64,6 +54,18 @@ h1 {
   font-weight: 400;
 }
 
+.form-area-div p,
+.copywrite a {
+  color: #4d7cfe;
+}
+
+.copywrite {
+  margin-top: 1em;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* BUTTON */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 .submit-button {
   background-color: #4d7cfe;
   border: none;
@@ -90,42 +92,14 @@ h1 {
   top: 1px;
 }
 
-.form-area-div p {
-  color: #4d7cfe;
-  margin-left: var(--form-margin);
-}
-
-.underline {
-  text-decoration: underline;
-}
-
-.bold {
-  font-weight: 500;
-}
-
-.results-area {
-  position: absolute;
-  right: 0;
-  width: 60vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.results-header {
-  margin-top: 5em;
-  align-self: center;
-}
-
+/* ============================================= */
+/* RESULTS MODULE */
+/* ============================================= */
 li {
   list-style: none;
   border-radius: 10px;
-  width: 500px;
-  padding: 1em 1em 2em 2em;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 1em 1em 2em 1em;
   margin-bottom: 1em;
-  
   background-color: #adc3ff;
   display: flex;
   flex-direction: column;
@@ -153,4 +127,143 @@ li:first-child {
 .wire-title {
   font-weight: 500;
   font-size: 1.25rem;
+}
+
+
+/* ============================================================================================================== */
+/* LARGE SCREENS */
+/* ============================================================================================================== */
+@media screen and (min-width: 1200px){
+
+  /* ============================================= */
+  /* GENERAL */
+  /* ============================================= */
+  
+  /* ============================================= */
+  /* FORM AREA */
+  /* ============================================= */
+  .form-area-div {
+    height: 100vh;
+    position: fixed;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .form-area {
+    border-radius: 10px;
+    padding: 2em;
+    width: 40vw;
+    background: white;
+    margin: var(--form-margin);
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* part of input-div */
+  .form-input, .form-select {
+    flex: 1.15 1 0;
+    padding: .75em;
+    border: 1px solid #f3f3f3;
+    border-radius: 3px;
+  }
+  
+  /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+  /* BUTTON */
+  /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+  
+  /* ============================================= */
+  /* RESULTS AREA */
+  /* ============================================= */
+  li {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .results-area {
+    position: absolute;
+    right: 0;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .results-header {
+    margin-top: 5em;
+    align-self: center;
+  }
+
+  /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+  /* RESULTS MODULES */
+  /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+}
+
+/* ============================================================================================================== */
+/* SMALL SCREENS */
+/* ============================================================================================================== */
+@media screen and (max-width: 1200px){
+  
+  /* ============================================= */
+  /* GENERAL */
+  /* ============================================= */
+
+  /* ============================================= */
+  /* FORM AREA */
+  /* ============================================= */
+  .form-area-div {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    font-size: var(--small-font);
+    width: 100%;
+    background: white;
+  }
+
+
+  /* part of input-div */
+  .form-input, .form-select {
+    flex: 1.5 auto 0;
+    padding: .75em;
+    border: 1px solid #f3f3f3;
+    border-radius: 3px;
+    font-size: var(--small-font);
+  }
+  .form-label {
+    font-size: var(--small-font);
+  }
+
+  .copywrite {
+    margin-top: 1em;
+  }
+
+  /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+  /* BUTTON */
+  /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+  /* ============================================= */
+  /* RESULTS AREA */
+  /* ============================================= */
+  .results-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .results-header {
+    margin-top: 2em;
+    align-self: center;
+  }
+
+  .results-list {
+    padding-left: 0;
+  }
+
+  /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+  /* RESULTS MODULES */
+  /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+  li {
+    font-size: var(--small-font);
+  }
 }

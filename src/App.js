@@ -179,41 +179,22 @@ class App extends React.Component {
 
     // if amps return amps
     if (loadType === "amps") {
-      // console.log(`Load type should be Amps: ${loadType}`)
-      // console.log(`Load was: ${load}A`)
-      // console.log(`Load data type was: ${typeof(load)}`)
       return load;
     }
     // if watts and single phase return watts/(voltage * pf)
     if (loadType === "watts" && numOfPhases === "single") {
-      // console.log(`Load type should be watts: ${loadType}`)
-      // console.log(`Load was: ${load}W`)
-      // console.log(`number of phases was: ${numOfPhases}`)
-      // console.log(`Load data type was: ${typeof(load)}`)
       return load / (voltage * pf);
     }
     // if watts and three phase return watts/(voltage * pf * 1.73)
     if (loadType === "watts" && numOfPhases === "three") {
-      // console.log(`Load type should be watts: ${loadType}`)
-      // console.log(`Load was: ${load}W`)
-      // console.log(`number of phases was: ${numOfPhases}`)
-      // console.log(`Load data type was: ${typeof(load)}`)
       return load / (voltage * pf * 1.73);
     }
     // if VA and single phase return VA/voltage
     if (loadType === "voltAmps" && numOfPhases === "single") {
-      // console.log(`Load type should be volt-amps: ${loadType}`)
-      // console.log(`Load was: ${load}VA`)
-      // console.log(`number of phases was: ${numOfPhases}`)
-      // console.log(`Load data type was: ${typeof(load)}`)
       return load / voltage;
     }
     // if VA and three phase return VA/(voltage*1.73)
     if (loadType === "voltAmps" && numOfPhases === "three") {
-      // console.log(`Load type should be volt-amps: ${loadType}`)
-      // console.log(`Load was: ${load}VA`)
-      // console.log(`number of phases was: ${numOfPhases}`)
-      // console.log(`Load data type was: ${typeof(load)}`)
       return load / (voltage * 1.73);
     }
   }
