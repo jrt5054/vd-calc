@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/vd-calc/static/css/main.fdf48215.chunk.css",
-    "main.js": "/vd-calc/static/js/main.bb8e43cb.chunk.js",
-    "main.js.map": "/vd-calc/static/js/main.bb8e43cb.chunk.js.map",
+    "main.css": "/vd-calc/static/css/main.c70ea20d.chunk.css",
+    "main.js": "/vd-calc/static/js/main.811741a6.chunk.js",
+    "main.js.map": "/vd-calc/static/js/main.811741a6.chunk.js.map",
     "runtime-main.js": "/vd-calc/static/js/runtime-main.53ec0d2c.js",
     "runtime-main.js.map": "/vd-calc/static/js/runtime-main.53ec0d2c.js.map",
     "static/js/2.9824c14c.chunk.js": "/vd-calc/static/js/2.9824c14c.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.6f97d17a.chunk.js": "/vd-calc/static/js/3.6f97d17a.chunk.js",
     "static/js/3.6f97d17a.chunk.js.map": "/vd-calc/static/js/3.6f97d17a.chunk.js.map",
     "index.html": "/vd-calc/index.html",
-    "static/css/main.fdf48215.chunk.css.map": "/vd-calc/static/css/main.fdf48215.chunk.css.map",
+    "static/css/main.c70ea20d.chunk.css.map": "/vd-calc/static/css/main.c70ea20d.chunk.css.map",
     "static/js/2.9824c14c.chunk.js.LICENSE.txt": "/vd-calc/static/js/2.9824c14c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.53ec0d2c.js",
     "static/js/2.9824c14c.chunk.js",
-    "static/css/main.fdf48215.chunk.css",
-    "static/js/main.bb8e43cb.chunk.js"
+    "static/css/main.c70ea20d.chunk.css",
+    "static/js/main.811741a6.chunk.js"
   ]
 }
