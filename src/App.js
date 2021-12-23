@@ -108,6 +108,11 @@ class App extends React.Component {
     this.addLineItem = this.addLineItem.bind(this);
     this.removeLineItem = this.removeLineItem.bind(this);
   }
+
+  arrayReverse(array) {
+    let reversedArray = array;
+    return reversedArray.reverse();
+  }
   // The following function takes a number input and returns it rounded to two decimal places
   roundToTwoDec(num){
     return Math.round( ( num + Number.EPSILON ) * 100) / 100;
@@ -224,15 +229,13 @@ class App extends React.Component {
 
     // calculate the impedance
     const impedance = this.calcImp(impInput);
-    // console.log(`this is the impedance from calcImp(): ${impedance}`)
 
     // calculate the amperage based on the form data
     const amps = this.calcAmps(ampInput);
-    // console.log(`this is the amps from calcAmps(): ${amps}A`)
 
     // 1 phase VD = impedance*(dist/1000)*Amps*2/(num parallel runs)
     // 3 phase VD = impedance*(dist/1000)*Amps*1.73/(num parallel runs)
-    // console.log(vdInfo);
+
     if (numOfPhases === "single") {
       voltageDrop = (impedance * (wireLength / 1000) * amps * 2) / parallelRuns;
     } else {
@@ -249,14 +252,10 @@ class App extends React.Component {
     newVDItemInfo.voltageDropPercent = this.roundToTwoDec(voltageDropPercent);
 
     this.addLineItem(newVDItemInfo)
-
-    // return {
-    //   voltageDrop: voltageDrop,
-    //   voltageDropPercent: voltageDropPercent,
-    // };
   }
 
   render() {
+    let printArray = this.arrayReverse(this.state.vdItemArray);
     return (
       <div className="background">
         {/* <Header headerName="Voltage Drop Calculator" /> */}
@@ -267,7 +266,7 @@ class App extends React.Component {
         <div className="results-area">
           <p className="results-header">Results</p>
           <ol className="results-list">
-              {this.state.vdItemArray.map((singleElement)=>{
+              {printArray.map((singleElement)=>{
                   return <SingleLineItem key={singleElement.id} lineItem={singleElement} removeLineItem={this.removeLineItem} />
               })}
           </ol>
