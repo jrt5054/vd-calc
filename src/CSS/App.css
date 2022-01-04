@@ -42,6 +42,18 @@ p {
   align-self: center;
 }
 
+.form-input, .form-select {
+  padding-top: .75em;
+  padding-right: .75em;
+  padding-bottom: .75em;
+  border: 1px solid #f3f3f3;
+  border-radius: 3px;
+}
+
+.form-select {
+  padding-left: .75em;
+}
+
 .form-input {
   /* this adjusts the very small spacing difference between selects and text inputs */
   padding-left: calc(.75em + 6px);
@@ -163,9 +175,6 @@ li:first-child {
   /* part of input-div */
   .form-input, .form-select {
     flex: 1.15 1 0;
-    padding: .75em;
-    border: 1px solid #f3f3f3;
-    border-radius: 3px;
   }
   
   /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -221,15 +230,12 @@ li:first-child {
     background: white;
   }
 
-
   /* part of input-div */
   .form-input, .form-select {
     flex: 1.5 auto 0;
-    padding: .75em;
-    border: 1px solid #f3f3f3;
-    border-radius: 3px;
     font-size: var(--small-font);
   }
+
   .form-label {
     font-size: var(--small-font);
   }
