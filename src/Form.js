@@ -5,6 +5,37 @@ class Form extends React.Component {
     super();
     this.uniqueId = 0;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.toolTipFollow = this.toolTipFollow.bind(this);
+    this.toolTipShow = this.toolTipShow.bind(this);
+    this.toolTipHide = this.toolTipHide.bind(this);
+  }
+
+  toolTipDiv(){
+    const node = document.createElement('div');
+    node.className = 'tooltip';
+    node.setAttribute('hidden', '');
+    document.body.appendChild(node);
+  }
+
+  toolTipFollow(event) {
+    node.style.left = event.clientX + 20 + 'px';
+    node.style.top = event.clientY + 10 + 'px';
+  }
+
+  toolTipShow(event){
+    node.textContent = event.target.dataset.tooltip;
+    node.removeAttribute('hidden');
+  }
+
+  toolTipHide() {
+    node.setAttribute('hidden', '');
+  }
+
+  handleMouseOver() {
+    const foo = document.getElementsByClassName('tooltipitem')
+    foo.onmouseover = tooltip.show;
+    foo.onmousemove = tooltip.follow;
+    foo.onmouseout = tooltip.hide;
   }
 
   handleSubmit(event) {
@@ -36,7 +67,7 @@ class Form extends React.Component {
 
 {/* WIRE TAG */}
           <div className="input-area-div">
-            <label className="form-label" htmlFor="wireTag">
+            <label className="form-label tooltipitem" htmlFor="wireTag" data-tooltip="TEST TEST">
               Wire Tag:
             </label>
             <input
@@ -164,7 +195,7 @@ class Form extends React.Component {
             />
           </div>
 {/* SUBMIT BUTTON */}
-          <button type="submit" className="submit-button">
+          <button type="submit" className="submit-button" onMouseMove={this.handleMouseOver}>
             SUBMIT
           </button>
         </form>
