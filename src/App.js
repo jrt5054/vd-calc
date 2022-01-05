@@ -2,6 +2,7 @@ import React from "react";
 import "./CSS/App.css";
 import Form from "./Form";
 import SingleLineItem from "./SingleLineItem";
+import ToolTips from "./ToolTips";
 
 class App extends React.Component {
   constructor() {
@@ -258,6 +259,7 @@ class App extends React.Component {
     let printArray = this.arrayReverse(this.state.vdItemArray);
     return (
       <div className="background">
+        <ToolTips/>
         {/* <Header headerName="Voltage Drop Calculator" /> */}
         <Form
           listOfWireSizes={this.state.listOfWireSizes}
