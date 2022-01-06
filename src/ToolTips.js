@@ -11,3 +11,9 @@ class ToolTips extends React.Component {
 }
  
 export default ToolTips;
+
+// hover over form input
+// triggers handleMouseOver function
+// sends ID to <ToolTips/>
+// tooltips finds div with same id and changes class to 'show'
+// also adds attributes directly to div 
